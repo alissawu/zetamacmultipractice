@@ -1,67 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Times Tables Practice</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="container">
-        <div id="setup-screen" class="screen active">
-            <h1>Times Tables Practice</h1>
-            <div class="setup-form">
-                <div class="input-group">
-                    <label for="max-number">Maximum Number (1-100):</label>
-                    <input type="number" id="max-number" min="1" max="100" value="12" autofocus>
-                </div>
-                <div class="input-group">
-                    <label for="time-limit">Time Limit (seconds, 0 for unlimited):</label>
-                    <input type="number" id="time-limit" min="0" value="120">
-                </div>
-                <button id="start-btn" class="btn">Start</button>
-            </div>
-        </div>
+  <head>
+    <title>Multiplication Game</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="start-screen" class="screen active">
+      <h2>Multiplication Game</h2>
 
-        <div id="game-screen" class="screen">
-            <div class="game-header">
-                <div class="stats">
-                    <span id="score">Score: 0</span>
-                    <span id="timer">Time: 2:00</span>
-                </div>
-            </div>
-            <div class="game-content">
-                <div class="problem" id="problem">7 × 8</div>
-                <input type="number" id="answer-input" class="answer-input" autocomplete="off">
-                <div class="feedback" id="feedback"></div>
-            </div>
-            <button id="stop-btn" class="btn secondary">Stop</button>
-        </div>
-
-        <div id="results-screen" class="screen">
-            <h2>Results</h2>
-            <div class="results-stats">
-                <div class="stat-item">
-                    <span class="stat-label">Final Score:</span>
-                    <span id="final-score" class="stat-value">0</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-label">Correct Answers:</span>
-                    <span id="correct-count" class="stat-value">0</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-label">Incorrect Answers:</span>
-                    <span id="incorrect-count" class="stat-value">0</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-label">Time Taken:</span>
-                    <span id="time-taken" class="stat-value">0:00</span>
-                </div>
-            </div>
-            <button id="restart-btn" class="btn">New Game</button>
-        </div>
+      <div class="range">
+        Range: (
+        <input id="min-number-1" type="number" value="1" />
+        <input id="max-number-1" type="number" value="20" />
+        ) * (
+        <input id="min-number-2" type="number" value="1" />
+        <input id="max-number-2" type="number" value="20" />
+        )
+      </div>
+      <br />
+      <div class="time-limit">
+        Duration:
+        <input id="time-limit" type="number" value="30" />
+      </div>
+      <br />
+      <button id="start-btn">Start</button>
     </div>
-
-    <script src="script.js"></script>
-</body>
+    <div id="game-screen" class="screen">...</div>
+    <div id="results-screen" class="screen">...</div>
+    <script src="app.ts" type="module"></script>
+  </body>
 </html>
