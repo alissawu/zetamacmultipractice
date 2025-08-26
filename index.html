@@ -26,23 +26,21 @@
       <button id="start-btn">Start</button>
     </div>
     <div id="game-screen" class="screen">
-        <div class="game-header">
-            <div id="score" class="score">score: 0</div>
-            <div id="timer" class="timer">seconds left: 120s</div>
-        </div>
-        <div id="problem">7 x 8 =
-            <input id="answer" type="number" class="answer"></input>
-        </div>
-        <button id="stop-btn" class="stop-btn">stop</button>
-
+      <div class="game-header">
+        <div>score: <span id="score">0</span></div>
+        <div>seconds left: <span id="timer">120</span></div>
+      </div>
+      <div id="problem"></div>
+      <br />
+      <button id="stop-btn" class="stop-btn">stop</button>
     </div>
     <div id="results-screen" class="screen">
-        <div id="final-score">score: 10</div>
-        <div id="restart-options" class="restart-options">
-            <button id="retry" class="retry">try again</button>
-            or
-            <button id="new-settings" class="new-settings">change settings</button>
-        </div>
+      <div id="final-score">score: 10</div>
+      <div id="restart-options" class="restart-options">
+        <button id="retry" class="retry">try again</button>
+        or
+        <button id="new-settings" class="new-settings">change settings</button>
+      </div>
     </div>
 
     <script src="app.ts" type="module"></script>
