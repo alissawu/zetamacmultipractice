@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Multiplication Game</title>
+    <title>multiplication game</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -20,13 +20,31 @@
       <br />
       <div class="time-limit">
         Duration:
-        <input id="time-limit" type="number" value="30" />
+        <input id="time-limit" type="number" value="120" />
       </div>
       <br />
       <button id="start-btn">Start</button>
     </div>
-    <div id="game-screen" class="screen">...</div>
-    <div id="results-screen" class="screen">...</div>
+    <div id="game-screen" class="screen">
+        <div class="game-header">
+            <div id="score" class="score">score: 0</div>
+            <div id="timer" class="timer">seconds left: 120s</div>
+        </div>
+        <div id="problem">7 x 8 =
+            <input id="answer" type="number" class="answer"></input>
+        </div>
+        <button id="stop-btn" class="stop-btn">stop</button>
+
+    </div>
+    <div id="results-screen" class="screen">
+        <div id="final-score">score: 10</div>
+        <div id="restart-options" class="restart-options">
+            <button id="retry" class="retry">try again</button>
+            or
+            <button id="new-settings" class="new-settings">change settings</button>
+        </div>
+    </div>
+
     <script src="app.ts" type="module"></script>
   </body>
 </html>

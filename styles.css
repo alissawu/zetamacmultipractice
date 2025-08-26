@@ -7,5 +7,20 @@
 }
 
 .screen.active {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#game-screen.active {
+  justify-content: flex-start;
+  padding-top: 20px;
+}
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
 }

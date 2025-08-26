@@ -1,2 +1,2 @@
-run `python3 -m http.server 8000`
-site will be on localhost:8000
+run `bun --hot index.html`
+will be on [http://localhost:3000](http://localhost:3000)
