@@ -8,6 +8,18 @@ const timerDisplay = document.getElementById("timer");
 let timerInterval: number | null = null; // timer id to stop it later
 let timeLeft: number; // seconds, 120, 119, 118
 const problemDiv = document.getElementById("problem")!; //! = non-null assertion
+// add here so we don't keep adding listeners
+problemDiv.addEventListener("input", (e) => {
+  const target = e.target as HTMLInputElement;
+  if (target.id === "answer") {
+    if (parseInt(target.value) === answer) {
+      score++;
+      document.getElementById("score")!.textContent = score.toString();
+      generateProblem();
+    }
+  }
+});
+
 let score = 0;
 let answer: number;
 // RESULTS
@@ -37,6 +49,7 @@ changeSettingsBtn?.addEventListener("click", () => {
   startScn?.classList.add("active");
 });
 
+// START GAME BUTTON
 startBtn?.addEventListener("click", () => {
   // validate inputs
   const min1 = parseInt(
@@ -68,32 +81,24 @@ startBtn?.addEventListener("click", () => {
     return;
   }
   if (timeLimitValue < 0) {
-    alert("time can't be negative");
+    alert("Time cannot be negative!");
     return;
   }
-
-  timerDisplay!.textContent = timeLimit.value;
-  timeLeft = parseInt(timeLimit.value);
-  timerInterval = setInterval(() => {
-    timeLeft -= 1;
-    timerDisplay!.textContent = `${timeLeft}`; // Update first
-    if (timeLeft <= 0) {
-      endGame();
-    }
-  }, 1000);
+  timeLeft = timeLimitValue;
+  if (timeLimitValue > 0) {
+    timerInterval = setInterval(() => {
+      timeLeft -= 1;
+      timerDisplay!.textContent = `${timeLeft}`;
+      if (timeLeft <= 0) {
+        endGame();
+      }
+    }, 1000);
+  } else {
+    timerDisplay!.textContent = "∞";
+  }
 
   startScn?.classList.remove("active"); // remove active from start screen
   gameScn?.classList.add("active"); // now the game is active
-  problemDiv.addEventListener("input", (e) => {
-    const target = e.target as HTMLInputElement;
-    if (target.id === "answer") {
-      if (parseInt(target.value) === answer) {
-        score++;
-        document.getElementById("score")!.textContent = score.toString();
-        generateProblem();
-      }
-    }
-  });
 
   generateProblem();
 });
@@ -117,6 +122,7 @@ const generateProblem = () => {
   );
   answer = num1 * num2; // set var globally, set it per question here
   problemDiv.innerHTML = `${num1} * ${num2} = <input id="answer" type="number">`;
+  (document.getElementById("answer") as HTMLInputElement)?.focus();
 };
 
 const endGame = () => {
